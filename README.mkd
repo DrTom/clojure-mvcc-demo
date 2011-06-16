@@ -1,0 +1,43 @@
+
+MVCC Demo
+=========
+
+This is a small demo that shows MVCC/STM in Clojure at work. 
+
+Essentiall, a counter is incremented and decremented (or the other
+way round). 
+
+Here is a possible output:
+
+    --> increment has been invoked
+    --> increment reads the current value
+    --> decrement has been invoked
+    --> decrement reads the current value
+    --> decrementing now
+    --> decrementing done
+    --> incrementing now
+    --> increment reads the current value
+    --> incrementing now
+    --> incrementing done
+    final counter: 0
+    last operation: incremented
+
+
+Note that 
+
+    --> increment reads the current value
+    --> incrementing now
+
+appears twice, this due to the transaction.
+
+
+Build the Demo
+--------------
+
+Get [leiningen](https://github.com/technomancy/leiningen) and invoke `lein uberjar`.
+
+
+Run the Demo
+------------
+
+    java -jar mvcc-1.0.0-SNAPSHOT-standalone.jar 
